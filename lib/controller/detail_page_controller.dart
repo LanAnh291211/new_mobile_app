@@ -15,4 +15,7 @@ class DetailPageController extends GetxController {
       return ItemCast.fromJson(castJson);
     }).toList();
   }
+
+
+
 }
