@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class NewScreen extends StatelessWidget {
+class NewScreen extends StatelessWidget { //gfgfgf
   const NewScreen({Key? key}) : super(key: key);
 
   @override
