@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'view/my_home_page.dart';
 
-
+// Nhánh này sử dụng FutureBuilder
 void main() {
   runApp(const MyApp());
 }
