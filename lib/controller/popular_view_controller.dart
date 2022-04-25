@@ -21,4 +21,10 @@ class PopularViewController extends GetxController {
     super.onInit();
     getMovieInfo();
   } // Xảy ra rất nhanh chóng, lấy dữ liệu từ API trước để cung cấp cho UI (giao diện) trước khi nó được xây dựng bởi hàm build()
+
+  @override
+  void onReady() {
+    // TODO: implement onReady
+    super.onReady();
+  }
 }

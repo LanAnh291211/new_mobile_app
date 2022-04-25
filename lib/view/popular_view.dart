@@ -8,10 +8,21 @@ import 'detail_screen.dart';
 
 
 
-class PopularView extends StatelessWidget {
-  final PopularViewController _myHomePageController = Get.put(PopularViewController()); // Kích hoạt hàm onInit bên Controller để lấy dự liệu từ API
+class PopularView extends StatefulWidget {
+  @override
+  State<PopularView> createState() => _PopularViewState();
+}
+
+class _PopularViewState extends State<PopularView> {
+  final PopularViewController _myHomePageController = Get.put(PopularViewController()); // doi anh chut
+ // Kích hoạt hàm onInit bên Controller để lấy dự liệu từ API
 
 
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

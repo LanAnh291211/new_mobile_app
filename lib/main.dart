@@ -10,13 +10,14 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget { //a
+class MyApp extends StatelessWidget {
+  //a
   const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(builder: () {
+    return ScreenUtilInit(builder: (context) {
       designSize:
       const Size(820, 411);
       return GetMaterialApp(

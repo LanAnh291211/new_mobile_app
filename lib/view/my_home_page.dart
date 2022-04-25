@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           color: Colors.red,
           child: Center(
               child: TextButton(
-            onPressed: () =>Get.to(NewScreen()),
+            onPressed: () => Get.to(NewScreen()),
             child: Text("Qua man hinh khac"),
           )),
         ),
