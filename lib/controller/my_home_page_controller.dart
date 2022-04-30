@@ -5,9 +5,10 @@ import '../model/item_popular_model.dart';
 
 class MyHomePageController extends GetxController {
   Future<List<ItemPopular>> getMovieInfo() async {
-    Map<String, dynamic> data = await ApiServices().movieInfo();
+    Map<String, dynamic> data = await ApiServices().movieInfo(); // doi anh chut
 
     List listJsonInforMovie = data['results'];
+
     return listJsonInforMovie.map((e) => ItemPopular.fromJson(e)).toList();
   }
 }

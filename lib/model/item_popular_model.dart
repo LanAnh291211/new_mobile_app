@@ -25,7 +25,7 @@ class ItemPopular {
   String? originalLanguage;
   String? originalTitle;
   String? overview;
-  double? popularity;
+  num? popularity;
   String? posterPath;
   String? releaseDate;
   String? title;
@@ -51,7 +51,7 @@ class ItemPopular {
 
   ItemPopular.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
-    backdropPath ="https://image.tmdb.org/t/p/original" + json['backdrop_path'];
+    backdropPath ="https://image.tmdb.org/t/p/original" + json['backdrop_path'].toString();
     genreIds = json['genre_ids'].cast<int>();
     id = json['id'];
     originalLanguage = json['original_language'];
