@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:new_mobile_app/controller/detail_page_controller.dart';
+import 'package:new_mobile_app/respository/detail_page_controller.dart';
 
 import '../model/item_cast.dart';
 import '../model/item_popular_model.dart';
@@ -15,7 +15,6 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
-  final DetailPageController _detailPageController = Get.put(DetailPageController());
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +82,7 @@ class _DetailScreenState extends State<DetailScreen> {
           // ),
 
           FutureBuilder<List<ItemCast>>(
-              future: _detailPageController.getCastInfo(widget.itemPopular!.id!.toString()),
+              future: DetailPageRepository.getCastInfo(widget.itemPopular!.id!.toString()),
               builder: (context, snapshot) {
                 if (snapshot.hasData)
                   return SingleChildScrollView(

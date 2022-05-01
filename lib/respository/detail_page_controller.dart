@@ -4,8 +4,8 @@ import 'package:new_mobile_app/network/api_service.dart';
 
 import '../model/item_popular_model.dart';
 
-class DetailPageController extends GetxController {
-  Future<List<ItemCast>> getCastInfo(String id) async {
+class DetailPageRepository  {
+  static Future<List<ItemCast>> getCastInfo(String id) async {
     Map<String, dynamic> data = await ApiServices().castInfo(id);
 
     List listJsonInforCast = data['cast'];
