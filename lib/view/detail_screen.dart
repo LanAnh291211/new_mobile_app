@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:new_mobile_app/respository/detail_page_controller.dart';
+import 'package:new_mobile_app/respository/detail_repository.dart';
 
 import '../model/item_cast.dart';
 import '../model/item_popular_model.dart';

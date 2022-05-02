@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:new_mobile_app/respository/detail_page_controller.dart';
-import 'package:new_mobile_app/respository/my_home_page_controller.dart';
+import 'package:new_mobile_app/respository/detail_repository.dart';
+import 'package:new_mobile_app/respository/popularview_repositoty.dart';
 import 'package:provider/provider.dart';
 
 import 'view/my_home_page.dart';
@@ -23,11 +23,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
         designSize: const Size(820, 411),
         builder: () {
-          return FutureProvider(
-                create: (context) => PopularViewRepository.getMovieInfo(), // doi anh chut
-
-              initialData: [],
-              child: MaterialApp(
+          return MaterialApp(
                     title: 'Flutter Demo',
                     debugShowCheckedModeBanner: false,
                     theme: ThemeData(
@@ -44,9 +40,7 @@ class MyApp extends StatelessWidget {
                       textTheme: GoogleFonts.comfortaaTextTheme(),
                     ),
                     home: const MyHomePage(),
-                  )
-            
-          );
+                  );
         });
   }
 }

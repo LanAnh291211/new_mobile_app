@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:new_mobile_app/respository/my_home_page_controller.dart';
+import 'package:new_mobile_app/respository/popularview_repositoty.dart';
 import 'package:provider/provider.dart';
 
+import '../bloc/popular_bloc.dart';
 import '../model/item_popular_model.dart';
 import 'detail_screen.dart';
 
@@ -15,20 +16,33 @@ class PopularView extends StatefulWidget {
 }
 
 class _PopularViewState extends State<PopularView> {
-  @override 
+  final _popularBloc = PopularBloc();
+
+  @override
+  void initState() {     // Tương tự onInit của Getx là gọi hàm lấy dữ liệu từ API trước khi UI được xây dựng trong hàm build()
+    // TODO: implement initState
+    super.initState();
+    _popularBloc.fetchItemPopularList();  // Lấy dữ liệu từ API
+  }
+
+  @override
   Widget build(BuildContext context) {
-    var popularList = Provider.of<List<ItemPopular>>(context);
-    return popularList != null
-        ? GridView.builder(
+    return StreamBuilder<List<ItemPopular>>(
+        stream: _popularBloc.allItemPopular,
+        builder: (context,  snapshot) {
+          if (!snapshot.hasData || snapshot.hasError)
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          // List<ItemPopular> popularList = snapshot.data!;
+          return GridView.builder(
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 30.h),
-            itemCount: popularList.length,
+            itemCount: snapshot.data!.length,
             shrinkWrap: true,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(childAspectRatio: 0.62, crossAxisCount: 2, crossAxisSpacing: 16, mainAxisSpacing: 30),
-            itemBuilder: (BuildContext context, int index) => _itemPopular(popularList[index]),
-          )
-        : Center(
-            child: CircularProgressIndicator(),
+            itemBuilder: (BuildContext context, int index) => _itemPopular(snapshot.data![index]),
           );
+        });
   }
 
   GestureDetector _itemPopular(ItemPopular itemPopular) {
