@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         designSize: const Size(820, 411),
         builder: () {
           return FutureProvider(
-                create: (context) => PopularViewRepository.getMovieInfo(),
+                create: (context) => PopularViewRepository.getMovieInfo(), // doi anh chut
 
               initialData: [],
               child: MaterialApp(

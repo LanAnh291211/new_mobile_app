@@ -15,7 +15,7 @@ class PopularView extends StatefulWidget {
 }
 
 class _PopularViewState extends State<PopularView> {
-  @override
+  @override 
   Widget build(BuildContext context) {
     var popularList = Provider.of<List<ItemPopular>>(context);
     return popularList != null
